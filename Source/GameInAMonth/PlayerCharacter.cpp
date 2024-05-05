@@ -31,7 +31,7 @@ APlayerCharacter::APlayerCharacter()
 	CharacterWeapon->SetupAttachment(GetMesh(), fnWeaponSocket);//attaches to hand socket
 	CharacterWeapon->SetRelativeLocation(WeaponLocation);
 
-	//creates grenade spawn point
+	//creates fire spawn point
 	FireSpawnLocation = CreateDefaultSubobject<USceneComponent>(TEXT("Fire Spawn Location"));
 	FName fnMuzzle = TEXT("Muzzle");
 	FireSpawnLocation->SetupAttachment(CharacterWeapon, fnMuzzle);//attaches to muzzle socket on gun
