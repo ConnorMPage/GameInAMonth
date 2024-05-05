@@ -69,6 +69,11 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Released, this, &APlayerCharacter::FireWeapon);
 }
 
+void APlayerCharacter::RefuelWeapon()
+{
+	UE_LOG(LogTemp, Warning, TEXT("WeaponRefueld"));
+}
+
 void APlayerCharacter::MoveForward(float MoveAmount)
 {
 	AddMovementInput(GetActorForwardVector() * MoveAmount);

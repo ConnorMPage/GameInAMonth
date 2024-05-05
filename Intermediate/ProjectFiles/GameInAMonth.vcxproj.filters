@@ -32,6 +32,12 @@
     <Filter Include="Source\GameInAMonth">
       <UniqueIdentifier>{1A30E9B5-C043-3A2F-8ADA-25CF95A81F83}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\GameInAMonth\FuelTank.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\FuelTank.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
     <None Include="..\..\Source\GameInAMonth\GameInAMonth.Build.cs">
       <Filter>Source\GameInAMonth</Filter>
     </None>

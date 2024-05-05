@@ -59,6 +59,9 @@ protected:
 	
 	UPROPERTY(VisibleAnywhere)
 	FVector ProjectileSpawnLocation = FVector(5.0f, 0.0f, 0.0f);
+
+public:
+	void RefuelWeapon();
 private:
 	//Movement Functions
 	UFUNCTION()
