@@ -41,10 +41,22 @@
     <ClInclude Include="..\..\Source\GameInAMonth\GameInAMonth.h">
       <Filter>Source\GameInAMonth</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\MainGameMode.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\MainGameMode.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\GameInAMonth\PlayerCharacter.cpp">
       <Filter>Source\GameInAMonth</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\GameInAMonth\PlayerCharacter.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\ThePlayerControllerClass.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\ThePlayerControllerClass.h">
       <Filter>Source\GameInAMonth</Filter>
     </ClInclude>
   </ItemGroup>
