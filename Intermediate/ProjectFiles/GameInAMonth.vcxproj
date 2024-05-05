@@ -109,6 +109,8 @@
     <None Include="..\..\GameInAMonth.uproject"/>
     <None Include="..\..\Source\GameInAMonth.Target.cs"/>
     <None Include="..\..\Source\GameInAMonthEditor.Target.cs"/>
+    <None Include="..\..\.gitattributes"/>
+    <None Include="..\..\.gitignore"/>
     <None Include="..\..\.vsconfig"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
