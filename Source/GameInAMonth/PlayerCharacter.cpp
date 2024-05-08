@@ -2,6 +2,8 @@
 
 
 #include "PlayerCharacter.h"
+#include "FlameThrower.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 APlayerCharacter::APlayerCharacter()
@@ -25,24 +27,42 @@ APlayerCharacter::APlayerCharacter()
 	MainCamera->SetRelativeRotation(OriginalCamRotation);
 
 
-	//creates the characters weapon
-	CharacterWeapon = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Player Weapon"));
-	FName fnWeaponSocket = TEXT("Weapon");
-	CharacterWeapon->SetupAttachment(GetMesh(), fnWeaponSocket);//attaches to hand socket
-	CharacterWeapon->SetRelativeLocation(WeaponLocation);
 
+	
 	//creates fire spawn point
+	
 	FireSpawnLocation = CreateDefaultSubobject<USceneComponent>(TEXT("Fire Spawn Location"));
 	FName fnMuzzle = TEXT("Muzzle");
-	FireSpawnLocation->SetupAttachment(CharacterWeapon, fnMuzzle);//attaches to muzzle socket on gun
-	FireSpawnLocation->SetRelativeLocation(ProjectileSpawnLocation);
+//	FireSpawnLocation->SetupAttachment(CharacterWeapon, fnMuzzle);//attaches to muzzle socket on gun
+	//FireSpawnLocation->SetRelativeLocation(ProjectileSpawnLocation);
+
+
+	//creates map arm
+	MapArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("MapAttachmentArm"));
+	MapArm->SetupAttachment(FindComponentByClass<USkeletalMeshComponent>());//attaches to mesh
+	//creates map camera
+	MapCamera = CreateDefaultSubobject<USceneCaptureComponent2D>(TEXT("MapCamera"));
+	MapCamera->SetupAttachment(MapArm);
+	//sets map arm values
+	MapArm->SetRelativeLocation(MapArmPosition);
+	MapArm->SetRelativeRotation(MapArmRotation);
+	MapArm->TargetArmLength = MapArmLength;
 }
 
 // Called when the game starts or when spawned
 void APlayerCharacter::BeginPlay()
 {
-	Super::BeginPlay();
 	
+	Super::BeginPlay();
+	if (IsPlayer == false)//checks if its the player or AI
+	{
+		MapCamera->DestroyComponent();//destroys the camera of AI charcters 
+	}
+	FName fnWeaponSocket = TEXT("Weapon");
+	TheFlameThrower = GetWorld()->SpawnActor<AFlameThrower>(FlameThrowerClass);
+	TheFlameThrower->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, fnWeaponSocket);
+	TheFlameThrower->SetActorRelativeLocation(WeaponLocation);
+
 }
 
 // Called every frame
@@ -67,11 +87,13 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	//Action Bindings
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Released, this, &APlayerCharacter::FireWeapon);
+	PlayerInputComponent->BindAction(TEXT("Zoom"), IE_Pressed, this, &APlayerCharacter::ZoomIn);
+	PlayerInputComponent->BindAction(TEXT("Zoom"), IE_Released, this, &APlayerCharacter::ZoomOut);
 }
 
 void APlayerCharacter::RefuelWeapon()
 {
-	UE_LOG(LogTemp, Warning, TEXT("WeaponRefueld"));
+	TheFlameThrower->RefillAmmo();
 }
 
 void APlayerCharacter::MoveForward(float MoveAmount)
@@ -107,4 +129,20 @@ void APlayerCharacter::CrouchFinished()
 void APlayerCharacter::FireWeapon()
 {
 
+}
+
+void APlayerCharacter::ZoomIn()
+{
+	SpringArmForMainCam->TargetArmLength = ZoomedSpringArmLength;
+}
+
+void APlayerCharacter::ZoomOut()
+{
+	SpringArmForMainCam->TargetArmLength = SpringArmLength;//moves spring arm further from character
+	MainCamera->SetRelativeLocation(OriginalCamLocation);
+}
+
+float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	return 0.0f;
 }

@@ -32,6 +32,12 @@
     <Filter Include="Source\GameInAMonth">
       <UniqueIdentifier>{1A30E9B5-C043-3A2F-8ADA-25CF95A81F83}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\GameInAMonth\FlameThrower.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\FlameThrower.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\GameInAMonth\FuelTank.cpp">
       <Filter>Source\GameInAMonth</Filter>
     </ClCompile>
@@ -57,6 +63,18 @@
       <Filter>Source\GameInAMonth</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\GameInAMonth\PlayerCharacter.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\SecurityCamera.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\SecurityCamera.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\SercurityCameraManager.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\SercurityCameraManager.h">
       <Filter>Source\GameInAMonth</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\GameInAMonth\ThePlayerControllerClass.cpp">

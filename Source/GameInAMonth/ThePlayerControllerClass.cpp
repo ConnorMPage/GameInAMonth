@@ -10,4 +10,6 @@ void AThePlayerControllerClass::BeginPlay()
 	CrosshairUI = CreateWidget(this, CrosshairClass);
 	if (CrosshairUI != nullptr)CrosshairUI->AddToViewport();
 
+	MiniMapUI = CreateWidget(this, MiniMapClass);
+	if (MiniMapUI != nullptr)MiniMapUI->AddToViewport();
 }

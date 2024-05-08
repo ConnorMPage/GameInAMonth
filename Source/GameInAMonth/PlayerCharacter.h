@@ -5,9 +5,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Components/SceneCaptureComponent2D.h"
 #include "Camera/CameraComponent.h"
 #include "PlayerCharacter.generated.h"
-
+class AFlameThrower;
 UCLASS()
 class GAMEINAMONTH_API APlayerCharacter : public ACharacter
 {
@@ -36,7 +37,14 @@ protected:
 	USpringArmComponent* SpringArmForMainCam;
 	UPROPERTY(EditAnywhere)
 	USkeletalMeshComponent* CharacterWeapon;
-	
+	UPROPERTY(EditAnywhere)
+	AFlameThrower* TheFlameThrower;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AFlameThrower> FlameThrowerClass;
+	UPROPERTY(EditAnywhere)
+	USpringArmComponent* MapArm;//creates springarm for the map camera
+	UPROPERTY(EditAnywhere)
+	USceneCaptureComponent2D* MapCamera;
 	//--------------------------------------
 	//Vector * Rotator List
 	UPROPERTY(VisibleAnywhere)
@@ -51,6 +59,7 @@ protected:
 
 	UPROPERTY(VisibleAnywhere)
 	float ZoomedSpringArmLength = 50.0f;//Length of Springarm while zoomed
+
 	UPROPERTY(VisibleAnywhere)
 	FVector WeaponLocation = FVector(0.0f, 0.0f, -4.0f);// location of player weapon
 	
@@ -60,9 +69,27 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	FVector ProjectileSpawnLocation = FVector(5.0f, 0.0f, 0.0f);
 
+	//MiniMap Variables
+	UPROPERTY(VisibleAnywhere)
+	FRotator MapArmRotation = FRotator(0.0f, -90.0f, -90.0f);//rotation of map arm
+	UPROPERTY(VisibleAnywhere)
+	FVector MapArmPosition = FVector(0.0f, 0.0f, 130.0f);//location of map arm
+	UPROPERTY(EditAnywhere)
+	float MapArmLength = 500.0f;// length of map arm
+
+	//Boolean Variables
+	UPROPERTY(EditAnywhere)
+	bool IsPlayer = true;
 public:
 	void RefuelWeapon();
 private:
+	//player stats
+	UPROPERTY(EditAnywhere)
+	float MAXPLAYERHEALTH = 100.0f;
+	UPROPERTY(EditAnywhere)
+	float PlayerHealth = MAXPLAYERHEALTH;
+	UPROPERTY(EditAnywhere)
+	float NoHealth = 0.0f;
 	//Movement Functions
 	UFUNCTION()
 	void MoveForward(float MoveAmount);
@@ -80,4 +107,13 @@ private:
 	//Action Functions 
 	UFUNCTION()
 	void FireWeapon();
+
+	UFUNCTION()
+	void ZoomIn();
+	UFUNCTION()
+	void ZoomOut();
+
+	UFUNCTION()
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
+		AController* EventInstigator, AActor* DamageCauser) override;
 };

@@ -26,4 +26,8 @@ private:
 	TSubclassOf<UUserWidget> CrosshairClass;
 	UPROPERTY()
 	UUserWidget* CrosshairUI;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> MiniMapClass;
+	UPROPERTY()
+	UUserWidget* MiniMapUI;
 };
