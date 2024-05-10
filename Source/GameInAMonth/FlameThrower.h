@@ -25,9 +25,16 @@ public:
 protected:
 	UPROPERTY(EditAnywhere)
 	USkeletalMeshComponent* FlameThrowerMesh;
-
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* FireSpawnLocation;
 
 public:
-
+	UFUNCTION()
 	void RefillAmmo();
+	UFUNCTION()
+	void FireWeapon();
+
+private:
+	UPROPERTY(VisibleAnywhere)
+	FVector ProjectileSpawnLocation = FVector(5.0f, 0.0f, 0.0f);
 };

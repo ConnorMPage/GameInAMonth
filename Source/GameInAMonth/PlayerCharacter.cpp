@@ -86,7 +86,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction(TEXT("Crouch"), IE_Released, this, &APlayerCharacter::CrouchFinished);
 
 	//Action Bindings
-	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Released, this, &APlayerCharacter::FireWeapon);
+	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &APlayerCharacter::FireWeapon);
 	PlayerInputComponent->BindAction(TEXT("Zoom"), IE_Pressed, this, &APlayerCharacter::ZoomIn);
 	PlayerInputComponent->BindAction(TEXT("Zoom"), IE_Released, this, &APlayerCharacter::ZoomOut);
 }
@@ -94,6 +94,16 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 void APlayerCharacter::RefuelWeapon()
 {
 	TheFlameThrower->RefillAmmo();
+}
+
+void APlayerCharacter::AddHealth()
+{
+	PlayerHealth += ADDHEALTHAMOUNT;//increases health
+	UE_LOG(LogTemp, Warning, TEXT("Player Healed"));
+	if (PlayerHealth > MAXPLAYERHEALTH)//if health is above max
+	{
+		PlayerHealth = MAXPLAYERHEALTH;//sets back to max
+	}
 }
 
 void APlayerCharacter::MoveForward(float MoveAmount)

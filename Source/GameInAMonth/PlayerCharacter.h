@@ -81,11 +81,16 @@ protected:
 	UPROPERTY(EditAnywhere)
 	bool IsPlayer = true;
 public:
+	UFUNCTION()
 	void RefuelWeapon();
+	UFUNCTION()
+	void AddHealth();
 private:
 	//player stats
 	UPROPERTY(EditAnywhere)
 	float MAXPLAYERHEALTH = 100.0f;
+	UPROPERTY(EditAnywhere)
+	float ADDHEALTHAMOUNT = 25.0f;
 	UPROPERTY(EditAnywhere)
 	float PlayerHealth = MAXPLAYERHEALTH;
 	UPROPERTY(EditAnywhere)

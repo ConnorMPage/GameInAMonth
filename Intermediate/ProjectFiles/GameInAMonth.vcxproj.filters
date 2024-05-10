@@ -53,6 +53,12 @@
     <ClInclude Include="..\..\Source\GameInAMonth\GameInAMonth.h">
       <Filter>Source\GameInAMonth</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\HealthPack.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\HealthPack.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\GameInAMonth\MainGameMode.cpp">
       <Filter>Source\GameInAMonth</Filter>
     </ClCompile>

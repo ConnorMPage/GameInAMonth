@@ -12,4 +12,7 @@ void AThePlayerControllerClass::BeginPlay()
 
 	MiniMapUI = CreateWidget(this, MiniMapClass);
 	if (MiniMapUI != nullptr)MiniMapUI->AddToViewport();
+
+	HUDUI = CreateWidget(this, HUDClass);
+	if (HUDUI != nullptr)HUDUI->AddToViewport();
 }

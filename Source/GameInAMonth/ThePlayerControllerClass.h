@@ -30,4 +30,8 @@ private:
 	TSubclassOf<UUserWidget> MiniMapClass;
 	UPROPERTY()
 	UUserWidget* MiniMapUI;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> HUDClass;
+	UPROPERTY()
+	UUserWidget* HUDUI;
 };

@@ -31,7 +31,9 @@ struct FDamageEvent;
 	DECLARE_FUNCTION(execTurn); \
 	DECLARE_FUNCTION(execLookUp); \
 	DECLARE_FUNCTION(execSideMovement); \
-	DECLARE_FUNCTION(execMoveForward);
+	DECLARE_FUNCTION(execMoveForward); \
+	DECLARE_FUNCTION(execAddHealth); \
+	DECLARE_FUNCTION(execRefuelWeapon);
 
 
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_15_ACCESSORS
