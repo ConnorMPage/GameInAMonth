@@ -19,8 +19,17 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
+	virtual void Tick(float DeltaTime) override;
 private:
+	UFUNCTION()
+	void UpdateHUDStats();
+	UFUNCTION(BlueprintPure)
+	float GetHealthPerc();
+	UFUNCTION(BlueprintPure)
+	float GetFuelInMagPerc();
+	UFUNCTION(BlueprintPure)
+	int GetTotalFuelAmount();
+
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UUserWidget> CrosshairClass;
@@ -34,4 +43,16 @@ private:
 	TSubclassOf<UUserWidget> HUDClass;
 	UPROPERTY()
 	UUserWidget* HUDUI;
+
+	UPROPERTY()
+	int MaxMag = {};
+	UPROPERTY()
+	int FuelInMag = {};
+	UPROPERTY()
+	int TotalFuel = {};
+	UPROPERTY()
+	float HealthAmount = {};
+	UPROPERTY()
+	float MAXHealth = {};
+
 };

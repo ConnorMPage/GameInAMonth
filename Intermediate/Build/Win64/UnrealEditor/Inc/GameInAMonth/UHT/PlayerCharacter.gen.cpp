@@ -52,6 +52,20 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		P_THIS->ZoomIn();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(APlayerCharacter::execReloadWeapon)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ReloadWeapon();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(APlayerCharacter::execStopFireWeapon)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StopFireWeapon();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayerCharacter::execFireWeapon)
 	{
 		P_FINISH;
@@ -130,7 +144,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 			{ "LookUp", &APlayerCharacter::execLookUp },
 			{ "MoveForward", &APlayerCharacter::execMoveForward },
 			{ "RefuelWeapon", &APlayerCharacter::execRefuelWeapon },
+			{ "ReloadWeapon", &APlayerCharacter::execReloadWeapon },
 			{ "SideMovement", &APlayerCharacter::execSideMovement },
+			{ "StopFireWeapon", &APlayerCharacter::execStopFireWeapon },
 			{ "TakeDamage", &APlayerCharacter::execTakeDamage },
 			{ "Turn", &APlayerCharacter::execTurn },
 			{ "ZoomIn", &APlayerCharacter::execZoomIn },
@@ -328,6 +344,28 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayerCharacter_ReloadWeapon_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerCharacter_ReloadWeapon_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCharacter_ReloadWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCharacter, nullptr, "ReloadWeapon", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_ReloadWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerCharacter_ReloadWeapon_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_APlayerCharacter_ReloadWeapon()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerCharacter_ReloadWeapon_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_APlayerCharacter_SideMovement_Statics
 	{
 		struct PlayerCharacter_eventSideMovement_Parms
@@ -359,6 +397,28 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerCharacter_SideMovement_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayerCharacter_StopFireWeapon_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerCharacter_StopFireWeapon_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCharacter_StopFireWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCharacter, nullptr, "StopFireWeapon", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_StopFireWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerCharacter_StopFireWeapon_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_APlayerCharacter_StopFireWeapon()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerCharacter_StopFireWeapon_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -620,7 +680,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		{ &Z_Construct_UFunction_APlayerCharacter_LookUp, "LookUp" }, // 3564338599
 		{ &Z_Construct_UFunction_APlayerCharacter_MoveForward, "MoveForward" }, // 2902875338
 		{ &Z_Construct_UFunction_APlayerCharacter_RefuelWeapon, "RefuelWeapon" }, // 353543030
+		{ &Z_Construct_UFunction_APlayerCharacter_ReloadWeapon, "ReloadWeapon" }, // 3869315781
 		{ &Z_Construct_UFunction_APlayerCharacter_SideMovement, "SideMovement" }, // 2161533567
+		{ &Z_Construct_UFunction_APlayerCharacter_StopFireWeapon, "StopFireWeapon" }, // 3636434086
 		{ &Z_Construct_UFunction_APlayerCharacter_TakeDamage, "TakeDamage" }, // 785168394
 		{ &Z_Construct_UFunction_APlayerCharacter_Turn, "Turn" }, // 1705592003
 		{ &Z_Construct_UFunction_APlayerCharacter_ZoomIn, "ZoomIn" }, // 30437420
@@ -952,9 +1014,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerCharacter, APlayerCharacter::StaticClass, TEXT("APlayerCharacter"), &Z_Registration_Info_UClass_APlayerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerCharacter), 547369682U) },
+		{ Z_Construct_UClass_APlayerCharacter, APlayerCharacter::StaticClass, TEXT("APlayerCharacter"), &Z_Registration_Info_UClass_APlayerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerCharacter), 468601981U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_1306488433(TEXT("/Script/GameInAMonth"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_1558076615(TEXT("/Script/GameInAMonth"),
 		Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

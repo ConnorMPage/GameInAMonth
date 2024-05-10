@@ -112,7 +112,10 @@ private:
 	//Action Functions 
 	UFUNCTION()
 	void FireWeapon();
-
+	UFUNCTION()
+	void StopFireWeapon();
+	UFUNCTION()
+	void ReloadWeapon();
 	UFUNCTION()
 	void ZoomIn();
 	UFUNCTION()

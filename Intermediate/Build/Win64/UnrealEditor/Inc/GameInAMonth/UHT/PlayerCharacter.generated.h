@@ -25,6 +25,8 @@ struct FDamageEvent;
 	DECLARE_FUNCTION(execTakeDamage); \
 	DECLARE_FUNCTION(execZoomOut); \
 	DECLARE_FUNCTION(execZoomIn); \
+	DECLARE_FUNCTION(execReloadWeapon); \
+	DECLARE_FUNCTION(execStopFireWeapon); \
 	DECLARE_FUNCTION(execFireWeapon); \
 	DECLARE_FUNCTION(execCrouchFinished); \
 	DECLARE_FUNCTION(execBeginCrouch); \

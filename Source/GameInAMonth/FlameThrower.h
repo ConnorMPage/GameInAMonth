@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "FlameThrower.generated.h"
 
+class UNiagaraSystem;
+class UNiagaraComponent;
+
 UCLASS()
 class GAMEINAMONTH_API AFlameThrower : public AActor
 {
@@ -27,14 +30,43 @@ protected:
 	USkeletalMeshComponent* FlameThrowerMesh;
 	UPROPERTY(VisibleAnywhere)
 	USceneComponent* FireSpawnLocation;
-
+	UPROPERTY(EditAnywhere)
+	UNiagaraComponent* FlameSystem;
 public:
 	UFUNCTION()
 	void RefillAmmo();
 	UFUNCTION()
 	void FireWeapon();
+	UFUNCTION()
+	void StopWeapon();
+	UFUNCTION()
+	void Reload();
 
+	UFUNCTION()
+	int GetTotalFuel();
+	UFUNCTION()
+	int GetFuelInMag();
 private:
+	
+
 	UPROPERTY(VisibleAnywhere)
 	FVector ProjectileSpawnLocation = FVector(5.0f, 0.0f, 0.0f);
+	UPROPERTY(VisibleAnywhere)
+	FRotator ProjectileSpawnRotation = FRotator(0.0f, -90.0f, 0.0f);
+	UPROPERTY()
+	bool IsActive = false;
+
+
+	UPROPERTY(EditAnywhere)
+	int MagCapacity = 100;
+	UPROPERTY(EditAnywhere)
+	int FuelInMag = MagCapacity;
+
+	UPROPERTY(EditAnywhere)
+	int TotalFuel = 1000;
+
+	UPROPERTY(EditAnywhere)
+	int BonusFuel = 250;
+	UPROPERTY(EditAnywhere)
+	int EmptyMag = 0;
 };

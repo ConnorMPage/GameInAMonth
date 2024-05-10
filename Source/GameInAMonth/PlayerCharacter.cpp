@@ -87,8 +87,10 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	//Action Bindings
 	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &APlayerCharacter::FireWeapon);
+	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Released, this, &APlayerCharacter::StopFireWeapon);
 	PlayerInputComponent->BindAction(TEXT("Zoom"), IE_Pressed, this, &APlayerCharacter::ZoomIn);
 	PlayerInputComponent->BindAction(TEXT("Zoom"), IE_Released, this, &APlayerCharacter::ZoomOut);
+	PlayerInputComponent->BindAction(TEXT("Reload"), IE_Pressed, this, &APlayerCharacter::ReloadWeapon);
 }
 
 void APlayerCharacter::RefuelWeapon()
@@ -138,7 +140,17 @@ void APlayerCharacter::CrouchFinished()
 
 void APlayerCharacter::FireWeapon()
 {
+	TheFlameThrower->FireWeapon();
+}
 
+void APlayerCharacter::StopFireWeapon()
+{
+	TheFlameThrower->StopWeapon();
+}
+
+void APlayerCharacter::ReloadWeapon()
+{
+	TheFlameThrower->Reload();
 }
 
 void APlayerCharacter::ZoomIn()
