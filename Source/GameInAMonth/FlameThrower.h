@@ -8,7 +8,7 @@
 
 class UNiagaraSystem;
 class UNiagaraComponent;
-
+class UTimelineComponent;
 UCLASS()
 class GAMEINAMONTH_API AFlameThrower : public AActor
 {
@@ -32,6 +32,8 @@ protected:
 	USceneComponent* FireSpawnLocation;
 	UPROPERTY(EditAnywhere)
 	UNiagaraComponent* FlameSystem;
+	UPROPERTY()
+	UTimelineComponent* FlameTimeline;
 public:
 	UFUNCTION()
 	void RefillAmmo();
@@ -46,6 +48,8 @@ public:
 	int GetTotalFuel();
 	UFUNCTION()
 	int GetFuelInMag();
+	UFUNCTION()
+	int GetMagMax();
 private:
 	
 

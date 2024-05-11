@@ -2,7 +2,7 @@
 #include "FlameThrower.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraComponent.h"
-
+#include "Components/TimelineComponent.h"
 
 // Sets default values
 AFlameThrower::AFlameThrower()
@@ -18,6 +18,8 @@ AFlameThrower::AFlameThrower()
 	FireSpawnLocation->SetRelativeRotation(ProjectileSpawnRotation);
 	FlameSystem = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Flame NS"));
 	FlameSystem->SetupAttachment(FireSpawnLocation);
+	
+	FlameTimeline = CreateDefaultSubobject<UTimelineComponent>(TEXT("Flame Timeline"));
 }
 
 // Called when the game starts or when spawned
@@ -36,7 +38,7 @@ void AFlameThrower::Tick(float DeltaTime)
 		FuelInMag--;
 		if (FuelInMag <= EmptyMag) FlameSystem->Deactivate();
 	}
-
+	
 }
 
 void AFlameThrower::RefillAmmo()
@@ -52,7 +54,7 @@ void AFlameThrower::FireWeapon()
 		IsActive = true;
 		FlameSystem->Activate();
 	}
-
+	
 	
 }
 
@@ -105,5 +107,10 @@ int AFlameThrower::GetTotalFuel()
 int AFlameThrower::GetFuelInMag()
 {
 	return FuelInMag;
+}
+
+int AFlameThrower::GetMagMax()
+{
+	return MagCapacity;
 }
 

@@ -30,7 +30,8 @@ private:
 	UFUNCTION(BlueprintPure)
 	int GetTotalFuelAmount();
 
-
+	UPROPERTY()
+	APawn* PlayerCharacterRef;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UUserWidget> CrosshairClass;
 	UPROPERTY()

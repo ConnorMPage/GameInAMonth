@@ -85,6 +85,20 @@ public:
 	void RefuelWeapon();
 	UFUNCTION()
 	void AddHealth();
+
+
+	//getter Functions 
+	UFUNCTION()
+	int GetFuelInMag();
+	UFUNCTION()
+	int GetMaxMag();
+	UFUNCTION()
+	int GetFuelTotal();
+
+	UFUNCTION()
+	float GetHealth();
+	UFUNCTION()
+	float GetMaxHealth();
 private:
 	//player stats
 	UPROPERTY(EditAnywhere)

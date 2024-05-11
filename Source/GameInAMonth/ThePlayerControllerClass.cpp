@@ -8,6 +8,8 @@
 void AThePlayerControllerClass::BeginPlay()
 {
 	Super::BeginPlay();
+	PlayerCharacterRef = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
+
 
 	CrosshairUI = CreateWidget(this, CrosshairClass);
 	if (CrosshairUI != nullptr)CrosshairUI->AddToViewport();
@@ -17,6 +19,9 @@ void AThePlayerControllerClass::BeginPlay()
 
 	HUDUI = CreateWidget(this, HUDClass);
 	if (HUDUI != nullptr)HUDUI->AddToViewport();
+
+
+
 }
 
 void AThePlayerControllerClass::Tick(float DeltaTime)
@@ -28,17 +33,26 @@ void AThePlayerControllerClass::Tick(float DeltaTime)
 
 void AThePlayerControllerClass::UpdateHUDStats()
 {
-	
+	auto PlayerRef = Cast<APlayerCharacter>(PlayerCharacterRef);
+	if (PlayerRef != nullptr)
+	{
+		HealthAmount = PlayerRef->GetHealth();
+		MAXHealth = PlayerRef->GetMaxHealth();
+		FuelInMag = PlayerRef->GetFuelInMag();
+		MaxMag = PlayerRef->GetMaxMag();
+		TotalFuel = PlayerRef->GetFuelTotal();
+	}
 }
 
 float AThePlayerControllerClass::GetHealthPerc()
 {
-	return (HealthAmount/MAXHealth)*100;
+	return (HealthAmount/MAXHealth)*100.0f;
 }
 
 float AThePlayerControllerClass::GetFuelInMagPerc()
 {
-	return (FuelInMag/MaxMag) * 100;
+	
+	return (FuelInMag/MaxMag) * 100.0f;
 }
 
 int AThePlayerControllerClass::GetTotalFuelAmount()

@@ -108,6 +108,31 @@ void APlayerCharacter::AddHealth()
 	}
 }
 
+int APlayerCharacter::GetFuelInMag()
+{
+	return TheFlameThrower->GetFuelInMag();
+}
+
+int APlayerCharacter::GetMaxMag()
+{
+	return TheFlameThrower->GetMagMax();
+}
+
+int APlayerCharacter::GetFuelTotal()
+{
+	return TheFlameThrower->GetTotalFuel();
+}
+
+float APlayerCharacter::GetHealth()
+{
+	return PlayerHealth;
+}
+
+float APlayerCharacter::GetMaxHealth()
+{
+	return MAXPLAYERHEALTH;
+}
+
 void APlayerCharacter::MoveForward(float MoveAmount)
 {
 	AddMovementInput(GetActorForwardVector() * MoveAmount);

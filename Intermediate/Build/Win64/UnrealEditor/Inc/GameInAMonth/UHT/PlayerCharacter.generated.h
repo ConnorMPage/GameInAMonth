@@ -34,6 +34,11 @@ struct FDamageEvent;
 	DECLARE_FUNCTION(execLookUp); \
 	DECLARE_FUNCTION(execSideMovement); \
 	DECLARE_FUNCTION(execMoveForward); \
+	DECLARE_FUNCTION(execGetMaxHealth); \
+	DECLARE_FUNCTION(execGetHealth); \
+	DECLARE_FUNCTION(execGetFuelTotal); \
+	DECLARE_FUNCTION(execGetMaxMag); \
+	DECLARE_FUNCTION(execGetFuelInMag); \
 	DECLARE_FUNCTION(execAddHealth); \
 	DECLARE_FUNCTION(execRefuelWeapon);
 

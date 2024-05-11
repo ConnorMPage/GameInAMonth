@@ -14,11 +14,19 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UTimelineComponent_NoRegister();
 	GAMEINAMONTH_API UClass* Z_Construct_UClass_AFlameThrower();
 	GAMEINAMONTH_API UClass* Z_Construct_UClass_AFlameThrower_NoRegister();
 	NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_GameInAMonth();
 // End Cross Module References
+	DEFINE_FUNCTION(AFlameThrower::execGetMagMax)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetMagMax();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AFlameThrower::execGetFuelInMag)
 	{
 		P_FINISH;
@@ -67,6 +75,7 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "FireWeapon", &AFlameThrower::execFireWeapon },
 			{ "GetFuelInMag", &AFlameThrower::execGetFuelInMag },
+			{ "GetMagMax", &AFlameThrower::execGetMagMax },
 			{ "GetTotalFuel", &AFlameThrower::execGetTotalFuel },
 			{ "RefillAmmo", &AFlameThrower::execRefillAmmo },
 			{ "Reload", &AFlameThrower::execReload },
@@ -127,6 +136,40 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFlameThrower_GetFuelInMag_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics
+	{
+		struct FlameThrower_eventGetMagMax_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FlameThrower_eventGetMagMax_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "FlameThrower.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFlameThrower, nullptr, "GetMagMax", nullptr, nullptr, Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::FlameThrower_eventGetMagMax_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::FlameThrower_eventGetMagMax_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AFlameThrower_GetMagMax()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFlameThrower_GetMagMax_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -255,6 +298,10 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_FlameSystem;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_FlameTimeline_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_FlameTimeline;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileSpawnLocation_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_ProjectileSpawnLocation;
@@ -299,6 +346,7 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFlameThrower_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFlameThrower_FireWeapon, "FireWeapon" }, // 1992309625
 		{ &Z_Construct_UFunction_AFlameThrower_GetFuelInMag, "GetFuelInMag" }, // 4246335595
+		{ &Z_Construct_UFunction_AFlameThrower_GetMagMax, "GetMagMax" }, // 1334708161
 		{ &Z_Construct_UFunction_AFlameThrower_GetTotalFuel, "GetTotalFuel" }, // 4058998764
 		{ &Z_Construct_UFunction_AFlameThrower_RefillAmmo, "RefillAmmo" }, // 3864259872
 		{ &Z_Construct_UFunction_AFlameThrower_Reload, "Reload" }, // 1054454192
@@ -335,6 +383,13 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameSystem = { "FlameSystem", nullptr, (EPropertyFlags)0x0020080000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFlameThrower, FlameSystem), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameSystem_MetaData), Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameSystem_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "FlameThrower.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline = { "FlameTimeline", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFlameThrower, FlameTimeline), Z_Construct_UClass_UTimelineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline_MetaData), Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlameThrower_Statics::NewProp_ProjectileSpawnLocation_MetaData[] = {
 		{ "Category", "FlameThrower" },
@@ -398,6 +453,7 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameThrowerMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FireSpawnLocation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameSystem,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_ProjectileSpawnLocation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_ProjectileSpawnRotation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_IsActive,
@@ -445,9 +501,9 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFlameThrower, AFlameThrower::StaticClass, TEXT("AFlameThrower"), &Z_Registration_Info_UClass_AFlameThrower, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlameThrower), 2194964678U) },
+		{ Z_Construct_UClass_AFlameThrower, AFlameThrower::StaticClass, TEXT("AFlameThrower"), &Z_Registration_Info_UClass_AFlameThrower, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlameThrower), 1633186781U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_2172062891(TEXT("/Script/GameInAMonth"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_2800365305(TEXT("/Script/GameInAMonth"),
 		Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
