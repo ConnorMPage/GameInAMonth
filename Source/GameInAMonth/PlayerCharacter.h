@@ -93,8 +93,10 @@ public:
 	void RefuelWeapon();
 	UFUNCTION()
 	void AddHealth();
-
-
+	UFUNCTION()
+	void AddBullets();
+	UFUNCTION()
+	void AddGrenades();
 	//getter Functions 
 	UFUNCTION()
 	int GetFuelInMag();
@@ -127,6 +129,8 @@ private:
 	float NoHealth = 0.0f;
 	UPROPERTY(EditAnywhere)
 	int GrenadeCapacity = 3;
+	UPROPERTY(EditAnywhere)
+	int BonusGrenades = 2;
 	UPROPERTY()
 	int AmountOfGrenades = GrenadeCapacity;
 	UPROPERTY(EditAnywhere)

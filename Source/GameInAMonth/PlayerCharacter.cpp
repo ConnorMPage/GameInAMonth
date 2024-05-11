@@ -106,6 +106,16 @@ void APlayerCharacter::AddHealth()
 	}
 }
 
+void APlayerCharacter::AddBullets()
+{
+	AmountOfBullets += BonusBullets;
+}
+
+void APlayerCharacter::AddGrenades()
+{
+	AmountOfGrenades += BonusGrenades;
+}
+
 int APlayerCharacter::GetFuelInMag()
 {
 	return TheFlameThrower->GetFuelInMag();

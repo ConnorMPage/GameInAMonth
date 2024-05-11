@@ -45,6 +45,8 @@ struct FDamageEvent;
 	DECLARE_FUNCTION(execGetFuelTotal); \
 	DECLARE_FUNCTION(execGetMaxMag); \
 	DECLARE_FUNCTION(execGetFuelInMag); \
+	DECLARE_FUNCTION(execAddGrenades); \
+	DECLARE_FUNCTION(execAddBullets); \
 	DECLARE_FUNCTION(execAddHealth); \
 	DECLARE_FUNCTION(execRefuelWeapon);
 
