@@ -28,9 +28,9 @@ public:
 protected:
 	UPROPERTY(EditAnywhere)
 	USkeletalMeshComponent* FlameThrowerMesh;
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(BlueprintReadOnly)
 	USceneComponent* FireSpawnLocation;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UNiagaraComponent* FlameSystem;
 	UPROPERTY()
 	UTimelineComponent* FlameTimeline;
@@ -41,6 +41,12 @@ public:
 	void FireWeapon();
 	UFUNCTION()
 	void StopWeapon();
+	UFUNCTION(BlueprintImplementableEvent)
+	void BpFireEvent();
+	UFUNCTION(BlueprintImplementableEvent)
+	void BpStopEvent();
+	UFUNCTION(BlueprintCallable)
+	void ExecuteDamageOnTarget(AActor* ActorToBeDamaged);
 	UFUNCTION()
 	void Reload();
 
@@ -51,7 +57,8 @@ public:
 	UFUNCTION()
 	int GetMagMax();
 private:
-	
+	UPROPERTY(EditAnywhere)
+	float WeaponDamage = 10.0f;
 
 	UPROPERTY(VisibleAnywhere)
 	FVector ProjectileSpawnLocation = FVector(5.0f, 0.0f, 0.0f);

@@ -3,7 +3,7 @@
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraComponent.h"
 #include "Components/TimelineComponent.h"
-
+#include "Kismet/GameplayStatics.h"
 // Sets default values
 AFlameThrower::AFlameThrower()
 {
@@ -36,7 +36,11 @@ void AFlameThrower::Tick(float DeltaTime)
 	if (IsActive)
 	{
 		FuelInMag--;
-		if (FuelInMag <= EmptyMag) FlameSystem->Deactivate();
+		if (FuelInMag <= EmptyMag)
+		{
+			FlameSystem->Deactivate();
+			BpStopEvent();
+		}
 	}
 	
 }
@@ -52,18 +56,42 @@ void AFlameThrower::FireWeapon()
 	if (FuelInMag > EmptyMag)
 	{
 		IsActive = true;
+
 		FlameSystem->Activate();
+		BpFireEvent();
 	}
 	
 	
 }
 
+
+
 void AFlameThrower::StopWeapon()
 {
 	
 	IsActive = false;
+	BpStopEvent();
 	FlameSystem->Deactivate();
 	
+
+}
+
+void AFlameThrower::ExecuteDamageOnTarget(AActor* ActorToBeDamaged)
+{
+
+	AActor* TraceOwner = GetOwner();
+	if (TraceOwner == nullptr)
+	{
+		return;
+	}
+	UGameplayStatics::ApplyDamage(
+		ActorToBeDamaged, //actor that will be damaged
+		WeaponDamage, //the base damage to apply
+		TraceOwner->GetInstigatorController(), //controller that caused the damage
+		this, //Actor that actually caused the damage
+		UDamageType::StaticClass() //class that describes the damage that was done
+	);
+
 
 }
 

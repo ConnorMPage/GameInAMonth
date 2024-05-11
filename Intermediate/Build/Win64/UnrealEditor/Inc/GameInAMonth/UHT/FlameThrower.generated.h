@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 #ifdef GAMEINAMONTH_FlameThrower_generated_h
 #error "FlameThrower.generated.h already included, missing '#pragma once' in FlameThrower.h"
 #endif
@@ -23,12 +24,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execGetFuelInMag); \
 	DECLARE_FUNCTION(execGetTotalFuel); \
 	DECLARE_FUNCTION(execReload); \
+	DECLARE_FUNCTION(execExecuteDamageOnTarget); \
 	DECLARE_FUNCTION(execStopWeapon); \
 	DECLARE_FUNCTION(execFireWeapon); \
 	DECLARE_FUNCTION(execRefillAmmo);
 
 
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_ACCESSORS
+#define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_CALLBACK_WRAPPERS
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFlameThrower(); \
@@ -59,6 +62,7 @@ public: \
 	FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_ACCESSORS \
+	FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_CALLBACK_WRAPPERS \
 	FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_INCLASS_NO_PURE_DECLS \
 	FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_15_ENHANCED_CONSTRUCTORS \
 private: \
