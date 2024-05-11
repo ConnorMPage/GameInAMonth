@@ -29,6 +29,14 @@ private:
 	float GetFuelInMagPerc();
 	UFUNCTION(BlueprintPure)
 	int GetTotalFuelAmount();
+	
+	UFUNCTION(BlueprintPure)
+	int GetTotalBulletAmount();
+
+	UFUNCTION(BlueprintPure)
+	int GetBulletsInMag();
+	UFUNCTION(BlueprintPure)
+	int GetGrenades();
 
 	UPROPERTY()
 	APawn* PlayerCharacterRef;
@@ -56,4 +64,11 @@ private:
 	UPROPERTY()
 	float MAXHealth = {};
 
+
+	UPROPERTY()
+	int BulletsInMag = {};
+	UPROPERTY()
+	int TotalBullets = {};
+	UPROPERTY()
+	int AmountOfGrenades = {};
 };

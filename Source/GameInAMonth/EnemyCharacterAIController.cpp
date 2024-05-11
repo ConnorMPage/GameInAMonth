@@ -3,6 +3,7 @@
 
 #include "EnemyCharacterAIController.h"
 #include "Kismet/GameplayStatics.h"
+#include "Engine/TargetPoint.h"
 
 void AEnemyCharacterAIController::BeginPlay()
 {
@@ -14,7 +15,7 @@ void AEnemyCharacterAIController::BeginPlay()
 	}
 
 	PlayerCharacterRef = UGameplayStatics::GetPlayerPawn(GetWorld(), 0);
-	
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), Waypoints);
 }
 
 void AEnemyCharacterAIController::Tick(float DeltaTime)
@@ -25,7 +26,6 @@ void AEnemyCharacterAIController::Tick(float DeltaTime)
 		GetBlackboardComponent()->SetValueAsVector(TEXT("PlayerLocation"), PlayerCharacterRef->GetActorLocation());//sets the player location
 	}
 	else GetBlackboardComponent()->ClearValue(TEXT("PlayerLocation"));//clears the value so they go between waypoints instead
-	
 }
 
 bool AEnemyCharacterAIController::CheckInFront(AActor* TargetActor)
@@ -42,4 +42,10 @@ bool AEnemyCharacterAIController::CheckInFront(AActor* TargetActor)
 	else result = false;//facing player false
 	
 	return result;
+}
+
+AActor* AEnemyCharacterAIController::ChooseWaypoint()
+{
+	int index = FMath::RandRange(0, Waypoints.Num() - 1);//randomly selects a number within array size
+	return Waypoints[index];
 }

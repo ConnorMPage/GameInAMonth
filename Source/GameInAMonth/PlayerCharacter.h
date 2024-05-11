@@ -45,6 +45,10 @@ protected:
 	USpringArmComponent* MapArm;//creates springarm for the map camera
 	UPROPERTY(EditAnywhere)
 	USceneCaptureComponent2D* MapCamera;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> GrenadeClass;
+	UPROPERTY(EditAnywhere)
+	USoundBase* GunShotSound;
 	//--------------------------------------
 	//Vector * Rotator List
 	UPROPERTY(VisibleAnywhere)
@@ -64,7 +68,7 @@ protected:
 	FVector WeaponLocation = FVector(0.0f, 0.0f, -4.0f);// location of player weapon
 	
 	UPROPERTY(VisibleAnywhere)
-	USceneComponent* FireSpawnLocation;
+	USceneComponent* GrenadeSpawnLocation;
 	
 	UPROPERTY(VisibleAnywhere)
 	FVector ProjectileSpawnLocation = FVector(5.0f, 0.0f, 0.0f);
@@ -80,6 +84,10 @@ protected:
 	//Boolean Variables
 	UPROPERTY(EditAnywhere)
 	bool IsPlayer = true;
+	UPROPERTY(EditAnywhere)
+	bool IsDead = false;
+	UPROPERTY(EditAnywhere)
+	bool IsPrimary = true;
 public:
 	UFUNCTION()
 	void RefuelWeapon();
@@ -99,6 +107,14 @@ public:
 	float GetHealth();
 	UFUNCTION()
 	float GetMaxHealth();
+
+	UFUNCTION()
+	int GetBulletsInMag();
+	UFUNCTION()
+	int GetTotalBullets();
+
+	UFUNCTION()
+	int GetGrenades();
 private:
 	//player stats
 	UPROPERTY(EditAnywhere)
@@ -109,6 +125,28 @@ private:
 	float PlayerHealth = MAXPLAYERHEALTH;
 	UPROPERTY(EditAnywhere)
 	float NoHealth = 0.0f;
+	UPROPERTY(EditAnywhere)
+	int GrenadeCapacity = 3;
+	UPROPERTY()
+	int AmountOfGrenades = GrenadeCapacity;
+	UPROPERTY(EditAnywhere)
+	int EmptyMag = 0;
+
+	//rifle variables
+	UPROPERTY(EditAnywhere)
+	int AmountOfBullets = 75;
+	UPROPERTY(EditAnywhere)
+	int BonusBullets = 30;
+	UPROPERTY(EditAnywhere)
+	int MaxBulletMagCapacity = 15;
+	UPROPERTY(EditAnywhere)
+	int AmountOfBulletsInMag = MaxBulletMagCapacity;
+	UPROPERTY(EditAnywhere)
+	float RifleWeaponDamage = 25.0f;
+	UPROPERTY(EditAnywhere)
+	float RifleCastRange = 5000.0f;
+
+
 	//Movement Functions
 	UFUNCTION()
 	void MoveForward(float MoveAmount);
@@ -134,6 +172,12 @@ private:
 	void ZoomIn();
 	UFUNCTION()
 	void ZoomOut();
+	UFUNCTION()
+	void FireGrenade();
+	UFUNCTION()
+	void SetPrimary();
+	UFUNCTION()
+	void SetSecondary();
 
 	UFUNCTION()
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,

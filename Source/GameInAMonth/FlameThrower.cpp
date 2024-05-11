@@ -53,15 +53,16 @@ void AFlameThrower::RefillAmmo()
 
 void AFlameThrower::FireWeapon()
 {
-	if (FuelInMag > EmptyMag)
+	if (IsPrimary)
 	{
-		IsActive = true;
+		if (FuelInMag > EmptyMag)
+		{
+			IsActive = true;
 
-		FlameSystem->Activate();
-		BpFireEvent();
+			FlameSystem->Activate();
+			BpFireEvent();
+		}
 	}
-	
-	
 }
 
 
@@ -125,6 +126,11 @@ void AFlameThrower::Reload()
 			TotalFuel -= TotalFuel;//takes from reserves
 		}
 	}
+}
+
+void AFlameThrower::SetWeapon(bool WeaponSelect)
+{
+	IsPrimary = WeaponSelect;
 }
 
 int AFlameThrower::GetTotalFuel()

@@ -25,8 +25,12 @@ protected:
 	UBehaviorTree* EnemyBehaviourTree;
 	UPROPERTY()
 	APawn* PlayerCharacterRef;
+	UPROPERTY()
+	TArray<AActor*> Waypoints;
 private:
-
+	UFUNCTION()
 	bool CheckInFront(AActor* TargetActor);
+	UFUNCTION()
+	AActor* ChooseWaypoint();
 };
 

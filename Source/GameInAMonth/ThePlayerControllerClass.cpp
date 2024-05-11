@@ -41,6 +41,9 @@ void AThePlayerControllerClass::UpdateHUDStats()
 		FuelInMag = PlayerRef->GetFuelInMag();
 		MaxMag = PlayerRef->GetMaxMag();
 		TotalFuel = PlayerRef->GetFuelTotal();
+		BulletsInMag = PlayerRef->GetBulletsInMag();
+		TotalBullets = PlayerRef->GetTotalBullets();
+		AmountOfGrenades = PlayerRef->GetGrenades();
 	}
 }
 
@@ -58,4 +61,19 @@ float AThePlayerControllerClass::GetFuelInMagPerc()
 int AThePlayerControllerClass::GetTotalFuelAmount()
 {
 	return TotalFuel;
+}
+
+int AThePlayerControllerClass::GetTotalBulletAmount()
+{
+	return TotalBullets;
+}
+
+int AThePlayerControllerClass::GetBulletsInMag()
+{
+	return BulletsInMag;
+}
+
+int AThePlayerControllerClass::GetGrenades()
+{
+	return AmountOfGrenades;
 }

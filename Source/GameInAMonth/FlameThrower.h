@@ -49,7 +49,8 @@ public:
 	void ExecuteDamageOnTarget(AActor* ActorToBeDamaged);
 	UFUNCTION()
 	void Reload();
-
+	UFUNCTION()
+	void SetWeapon(bool WeaponSelect);
 	UFUNCTION()
 	int GetTotalFuel();
 	UFUNCTION()
@@ -66,7 +67,8 @@ private:
 	FRotator ProjectileSpawnRotation = FRotator(0.0f, -90.0f, 0.0f);
 	UPROPERTY()
 	bool IsActive = false;
-
+	UPROPERTY()
+	bool IsPrimary = true;
 
 	UPROPERTY(EditAnywhere)
 	int MagCapacity = 100;

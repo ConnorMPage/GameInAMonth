@@ -17,6 +17,27 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_GameInAMonth();
 // End Cross Module References
+	DEFINE_FUNCTION(AThePlayerControllerClass::execGetGrenades)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetGrenades();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AThePlayerControllerClass::execGetBulletsInMag)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetBulletsInMag();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AThePlayerControllerClass::execGetTotalBulletAmount)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetTotalBulletAmount();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AThePlayerControllerClass::execGetTotalFuelAmount)
 	{
 		P_FINISH;
@@ -49,12 +70,49 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 	{
 		UClass* Class = AThePlayerControllerClass::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GetBulletsInMag", &AThePlayerControllerClass::execGetBulletsInMag },
 			{ "GetFuelInMagPerc", &AThePlayerControllerClass::execGetFuelInMagPerc },
+			{ "GetGrenades", &AThePlayerControllerClass::execGetGrenades },
 			{ "GetHealthPerc", &AThePlayerControllerClass::execGetHealthPerc },
+			{ "GetTotalBulletAmount", &AThePlayerControllerClass::execGetTotalBulletAmount },
 			{ "GetTotalFuelAmount", &AThePlayerControllerClass::execGetTotalFuelAmount },
 			{ "UpdateHUDStats", &AThePlayerControllerClass::execUpdateHUDStats },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics
+	{
+		struct ThePlayerControllerClass_eventGetBulletsInMag_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThePlayerControllerClass_eventGetBulletsInMag_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ThePlayerControllerClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AThePlayerControllerClass, nullptr, "GetBulletsInMag", nullptr, nullptr, Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::PropPointers), sizeof(Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::ThePlayerControllerClass_eventGetBulletsInMag_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::Function_MetaDataParams), Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::ThePlayerControllerClass_eventGetBulletsInMag_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AThePlayerControllerClass_GetFuelInMagPerc_Statics
 	{
@@ -90,6 +148,40 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics
+	{
+		struct ThePlayerControllerClass_eventGetGrenades_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThePlayerControllerClass_eventGetGrenades_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ThePlayerControllerClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AThePlayerControllerClass, nullptr, "GetGrenades", nullptr, nullptr, Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::PropPointers), sizeof(Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::ThePlayerControllerClass_eventGetGrenades_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::Function_MetaDataParams), Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::ThePlayerControllerClass_eventGetGrenades_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_AThePlayerControllerClass_GetHealthPerc_Statics
 	{
 		struct ThePlayerControllerClass_eventGetHealthPerc_Parms
@@ -121,6 +213,40 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AThePlayerControllerClass_GetHealthPerc_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics
+	{
+		struct ThePlayerControllerClass_eventGetTotalBulletAmount_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThePlayerControllerClass_eventGetTotalBulletAmount_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ThePlayerControllerClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AThePlayerControllerClass, nullptr, "GetTotalBulletAmount", nullptr, nullptr, Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::PropPointers), sizeof(Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::ThePlayerControllerClass_eventGetTotalBulletAmount_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::Function_MetaDataParams), Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::ThePlayerControllerClass_eventGetTotalBulletAmount_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -240,6 +366,18 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MAXHealth_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_MAXHealth;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BulletsInMag_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_BulletsInMag;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TotalBullets_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_TotalBullets;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AmountOfGrenades_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_AmountOfGrenades;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -250,8 +388,11 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AThePlayerControllerClass_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AThePlayerControllerClass_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AThePlayerControllerClass_GetBulletsInMag, "GetBulletsInMag" }, // 818818297
 		{ &Z_Construct_UFunction_AThePlayerControllerClass_GetFuelInMagPerc, "GetFuelInMagPerc" }, // 2044378330
+		{ &Z_Construct_UFunction_AThePlayerControllerClass_GetGrenades, "GetGrenades" }, // 135876039
 		{ &Z_Construct_UFunction_AThePlayerControllerClass_GetHealthPerc, "GetHealthPerc" }, // 2242452333
+		{ &Z_Construct_UFunction_AThePlayerControllerClass_GetTotalBulletAmount, "GetTotalBulletAmount" }, // 3794639152
 		{ &Z_Construct_UFunction_AThePlayerControllerClass_GetTotalFuelAmount, "GetTotalFuelAmount" }, // 980273356
 		{ &Z_Construct_UFunction_AThePlayerControllerClass_UpdateHUDStats, "UpdateHUDStats" }, // 247403775
 	};
@@ -344,6 +485,24 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_MAXHealth = { "MAXHealth", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThePlayerControllerClass, MAXHealth), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_MAXHealth_MetaData), Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_MAXHealth_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_BulletsInMag_MetaData[] = {
+		{ "ModuleRelativePath", "ThePlayerControllerClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_BulletsInMag = { "BulletsInMag", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThePlayerControllerClass, BulletsInMag), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_BulletsInMag_MetaData), Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_BulletsInMag_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_TotalBullets_MetaData[] = {
+		{ "ModuleRelativePath", "ThePlayerControllerClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_TotalBullets = { "TotalBullets", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThePlayerControllerClass, TotalBullets), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_TotalBullets_MetaData), Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_TotalBullets_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_AmountOfGrenades_MetaData[] = {
+		{ "ModuleRelativePath", "ThePlayerControllerClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_AmountOfGrenades = { "AmountOfGrenades", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThePlayerControllerClass, AmountOfGrenades), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_AmountOfGrenades_MetaData), Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_AmountOfGrenades_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AThePlayerControllerClass_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_PlayerCharacterRef,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_CrosshairClass,
@@ -357,6 +516,9 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_TotalFuel,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_HealthAmount,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_MAXHealth,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_BulletsInMag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_TotalBullets,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThePlayerControllerClass_Statics::NewProp_AmountOfGrenades,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AThePlayerControllerClass_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AThePlayerControllerClass>::IsAbstract,
@@ -397,9 +559,9 @@ void EmptyLinkFunctionForGeneratedCodeThePlayerControllerClass() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_ThePlayerControllerClass_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AThePlayerControllerClass, AThePlayerControllerClass::StaticClass, TEXT("AThePlayerControllerClass"), &Z_Registration_Info_UClass_AThePlayerControllerClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThePlayerControllerClass), 107854327U) },
+		{ Z_Construct_UClass_AThePlayerControllerClass, AThePlayerControllerClass::StaticClass, TEXT("AThePlayerControllerClass"), &Z_Registration_Info_UClass_AThePlayerControllerClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThePlayerControllerClass), 4232786254U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_ThePlayerControllerClass_h_1753478062(TEXT("/Script/GameInAMonth"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_ThePlayerControllerClass_h_955397117(TEXT("/Script/GameInAMonth"),
 		Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_ThePlayerControllerClass_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_ThePlayerControllerClass_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -23,6 +23,9 @@ struct FDamageEvent;
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execTakeDamage); \
+	DECLARE_FUNCTION(execSetSecondary); \
+	DECLARE_FUNCTION(execSetPrimary); \
+	DECLARE_FUNCTION(execFireGrenade); \
 	DECLARE_FUNCTION(execZoomOut); \
 	DECLARE_FUNCTION(execZoomIn); \
 	DECLARE_FUNCTION(execReloadWeapon); \
@@ -34,6 +37,9 @@ struct FDamageEvent;
 	DECLARE_FUNCTION(execLookUp); \
 	DECLARE_FUNCTION(execSideMovement); \
 	DECLARE_FUNCTION(execMoveForward); \
+	DECLARE_FUNCTION(execGetGrenades); \
+	DECLARE_FUNCTION(execGetTotalBullets); \
+	DECLARE_FUNCTION(execGetBulletsInMag); \
 	DECLARE_FUNCTION(execGetMaxHealth); \
 	DECLARE_FUNCTION(execGetHealth); \
 	DECLARE_FUNCTION(execGetFuelTotal); \

@@ -23,6 +23,7 @@ class AActor;
 	DECLARE_FUNCTION(execGetMagMax); \
 	DECLARE_FUNCTION(execGetFuelInMag); \
 	DECLARE_FUNCTION(execGetTotalFuel); \
+	DECLARE_FUNCTION(execSetWeapon); \
 	DECLARE_FUNCTION(execReload); \
 	DECLARE_FUNCTION(execExecuteDamageOnTarget); \
 	DECLARE_FUNCTION(execStopWeapon); \

@@ -19,6 +19,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_ThePlayerControllerClass_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_ThePlayerControllerClass_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetGrenades); \
+	DECLARE_FUNCTION(execGetBulletsInMag); \
+	DECLARE_FUNCTION(execGetTotalBulletAmount); \
 	DECLARE_FUNCTION(execGetTotalFuelAmount); \
 	DECLARE_FUNCTION(execGetFuelInMagPerc); \
 	DECLARE_FUNCTION(execGetHealthPerc); \
