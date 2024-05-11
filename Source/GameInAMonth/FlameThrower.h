@@ -46,7 +46,7 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void BpStopEvent();
 	UFUNCTION(BlueprintCallable)
-	void ExecuteDamageOnTarget(AActor* ActorToBeDamaged);
+	void ExecuteDamageOnTarget(FHitResult ActorToBeDamaged);
 	UFUNCTION()
 	void Reload();
 	UFUNCTION()
@@ -57,9 +57,10 @@ public:
 	int GetFuelInMag();
 	UFUNCTION()
 	int GetMagMax();
-private:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float WeaponDamage = 10.0f;
+private:
+	
 
 	UPROPERTY(VisibleAnywhere)
 	FVector ProjectileSpawnLocation = FVector(5.0f, 0.0f, 0.0f);

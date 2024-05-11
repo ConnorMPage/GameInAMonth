@@ -9,7 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AActor;
+struct FHitResult;
 #ifdef GAMEINAMONTH_FlameThrower_generated_h
 #error "FlameThrower.generated.h already included, missing '#pragma once' in FlameThrower.h"
 #endif

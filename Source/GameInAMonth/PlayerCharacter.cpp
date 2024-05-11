@@ -308,6 +308,7 @@ float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Damag
 		{
 			UE_LOG(LogTemp, Warning, TEXT("enemy"));
 			Destroy();
+			TheFlameThrower->Destroy();
 			//GameModeRef->EnemyKilled();//executes a gamemode funtion
 		}
 		else//if player

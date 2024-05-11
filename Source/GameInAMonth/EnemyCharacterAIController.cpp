@@ -21,6 +21,7 @@ void AEnemyCharacterAIController::BeginPlay()
 void AEnemyCharacterAIController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	GetBlackboardComponent()->SetValueAsVector(TEXT("WayPointLocation"), ChooseWaypoint()->GetActorLocation());
 	if (LineOfSightTo(PlayerCharacterRef) && CheckInFront(PlayerCharacterRef))//if the player is in front
 	{
 		GetBlackboardComponent()->SetValueAsVector(TEXT("PlayerLocation"), PlayerCharacterRef->GetActorLocation());//sets the player location

@@ -77,16 +77,16 @@ void AFlameThrower::StopWeapon()
 
 }
 
-void AFlameThrower::ExecuteDamageOnTarget(AActor* ActorToBeDamaged)
+void AFlameThrower::ExecuteDamageOnTarget(FHitResult ActorToBeDamaged)
 {
-
+	UE_LOG(LogTemp, Warning, TEXT("Hit something: %s"), *ActorToBeDamaged.GetActor()->GetName());
 	AActor* TraceOwner = GetOwner();
 	if (TraceOwner == nullptr)
 	{
 		return;
 	}
 	UGameplayStatics::ApplyDamage(
-		ActorToBeDamaged, //actor that will be damaged
+		ActorToBeDamaged.GetActor(), //actor that will be damaged
 		WeaponDamage, //the base damage to apply
 		TraceOwner->GetInstigatorController(), //controller that caused the damage
 		this, //Actor that actually caused the damage

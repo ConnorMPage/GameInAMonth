@@ -59,6 +59,12 @@
     <ClInclude Include="..\..\Source\GameInAMonth\GameInAMonth.h">
       <Filter>Source\GameInAMonth</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\Grenade.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\Grenade.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\GameInAMonth\HealthPack.cpp">
       <Filter>Source\GameInAMonth</Filter>
     </ClCompile>
@@ -93,6 +99,12 @@
       <Filter>Source\GameInAMonth</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\GameInAMonth\ThePlayerControllerClass.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\UBTTask_ShootCharacter.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\UBTTask_ShootCharacter.h">
       <Filter>Source\GameInAMonth</Filter>
     </ClInclude>
   </ItemGroup>
