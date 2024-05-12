@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 #ifdef GAMEINAMONTH_MainGameMode_generated_h
 #error "MainGameMode.generated.h already included, missing '#pragma once' in MainGameMode.h"
 #endif
@@ -17,7 +18,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_MainGameMode_h_15_SPARSE_DATA
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_MainGameMode_h_15_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_MainGameMode_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_MainGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_MainGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execChooseSpawn); \
+	DECLARE_FUNCTION(execTimesUp); \
+	DECLARE_FUNCTION(execGetWinCon); \
+	DECLARE_FUNCTION(execGetGameState); \
+	DECLARE_FUNCTION(execStartRound); \
+	DECLARE_FUNCTION(execStartGame); \
+	DECLARE_FUNCTION(execGameOver); \
+	DECLARE_FUNCTION(execEnemyKilled);
+
+
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_MainGameMode_h_15_ACCESSORS
 #define FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_MainGameMode_h_15_INCLASS_NO_PURE_DECLS \
 private: \

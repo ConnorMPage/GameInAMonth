@@ -9,6 +9,8 @@
 #include "Camera/CameraComponent.h"
 #include "PlayerCharacter.generated.h"
 class AFlameThrower;
+class AMainGameMode;
+
 UCLASS()
 class GAMEINAMONTH_API APlayerCharacter : public ACharacter
 {
@@ -49,6 +51,8 @@ protected:
 	TSubclassOf<AActor> GrenadeClass;
 	UPROPERTY(EditAnywhere)
 	USoundBase* GunShotSound;
+	UPROPERTY(VisibleAnywhere)
+	AMainGameMode* GameModeRef;
 	//--------------------------------------
 	//Vector * Rotator List
 	UPROPERTY(VisibleAnywhere)

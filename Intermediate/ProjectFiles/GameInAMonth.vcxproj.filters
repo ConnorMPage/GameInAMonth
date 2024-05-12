@@ -107,6 +107,12 @@
     <ClInclude Include="..\..\Source\GameInAMonth\SercurityCameraManager.h">
       <Filter>Source\GameInAMonth</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\GameInAMonth\SpawnPads.cpp">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GameInAMonth\SpawnPads.h">
+      <Filter>Source\GameInAMonth</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\GameInAMonth\ThePlayerControllerClass.cpp">
       <Filter>Source\GameInAMonth</Filter>
     </ClCompile>

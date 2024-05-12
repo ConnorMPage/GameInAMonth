@@ -58,7 +58,7 @@ public:
 	UFUNCTION()
 	int GetMagMax();
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	float WeaponDamage = 10.0f;
+	float WeaponDamage = 25.0f;
 private:
 	
 

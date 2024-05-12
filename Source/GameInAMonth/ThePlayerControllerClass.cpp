@@ -5,6 +5,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "PlayerCharacter.h"
 #include "FlameThrower.h"
+#include "MainGameMode.h"
 void AThePlayerControllerClass::BeginPlay()
 {
 	Super::BeginPlay();
@@ -21,14 +22,14 @@ void AThePlayerControllerClass::BeginPlay()
 	if (HUDUI != nullptr)HUDUI->AddToViewport();
 
 
-
+	GameModeRef = Cast<AMainGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 }
 
 void AThePlayerControllerClass::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	UpdateHUDStats();
-
+	if (!GameModeRef->GetGameState()) LoadEndGame();
 }
 
 void AThePlayerControllerClass::UpdateHUDStats()
@@ -45,6 +46,15 @@ void AThePlayerControllerClass::UpdateHUDStats()
 		TotalBullets = PlayerRef->GetTotalBullets();
 		AmountOfGrenades = PlayerRef->GetGrenades();
 	}
+}
+
+void AThePlayerControllerClass::LoadEndGame()
+{
+	int WinScreenNum = GameModeRef->GetWinCon();
+	if (WinScreenNum == CWon)EndScreen = CreateWidget(this, WinClass);
+	if (WinScreenNum == COutOfTime)EndScreen = CreateWidget(this, OOTClass);
+	else EndScreen = CreateWidget(this, DeadClass);
+	if (EndScreen != nullptr)EndScreen->AddToViewport();
 }
 
 float AThePlayerControllerClass::GetHealthPerc()

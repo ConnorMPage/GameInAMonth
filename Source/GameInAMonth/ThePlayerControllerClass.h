@@ -6,7 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Blueprint/UserWidget.h"
 #include "ThePlayerControllerClass.generated.h"
-
+class AMainGameMode;
 /**
  * 
  */
@@ -23,6 +23,8 @@ protected:
 private:
 	UFUNCTION()
 	void UpdateHUDStats();
+	UFUNCTION()
+	void LoadEndGame();
 	UFUNCTION(BlueprintPure)
 	float GetHealthPerc();
 	UFUNCTION(BlueprintPure)
@@ -37,7 +39,8 @@ private:
 	int GetBulletsInMag();
 	UFUNCTION(BlueprintPure)
 	int GetGrenades();
-
+	UPROPERTY(VisibleAnywhere)
+	AMainGameMode* GameModeRef;
 	UPROPERTY()
 	APawn* PlayerCharacterRef;
 	UPROPERTY(EditAnywhere)
@@ -53,6 +56,14 @@ private:
 	UPROPERTY()
 	UUserWidget* HUDUI;
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> WinClass;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> OOTClass;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> DeadClass;
+	UPROPERTY()
+	UUserWidget* EndScreen;
 	UPROPERTY()
 	int MaxMag = {};
 	UPROPERTY()
@@ -71,4 +82,10 @@ private:
 	int TotalBullets = {};
 	UPROPERTY()
 	int AmountOfGrenades = {};
+	UPROPERTY()
+	int CWon = 1;
+	UPROPERTY()
+	int COutOfTime = 2;
+	UPROPERTY()
+	int CLoss = 3;
 };

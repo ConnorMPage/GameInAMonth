@@ -4,7 +4,7 @@
 #include "PlayerCharacter.h"
 #include "FlameThrower.h"
 #include "Kismet/GameplayStatics.h"
-
+#include "MainGameMode.h"
 // Sets default values
 APlayerCharacter::APlayerCharacter()
 {
@@ -57,6 +57,7 @@ void APlayerCharacter::BeginPlay()
 	TheFlameThrower = GetWorld()->SpawnActor<AFlameThrower>(FlameThrowerClass);
 	TheFlameThrower->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, fnWeaponSocket);
 	TheFlameThrower->SetActorRelativeLocation(WeaponLocation);
+	GameModeRef = Cast<AMainGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 
 }
 
@@ -64,7 +65,11 @@ void APlayerCharacter::BeginPlay()
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	//if (!GameModeRef->GetGameState())
+	//{
+	//	
+	//	this->DisableInput(GetWorld()->GetFirstPlayerController());
+	//}
 }
 
 // Called to bind functionality to input
@@ -158,22 +163,22 @@ int APlayerCharacter::GetGrenades()
 
 void APlayerCharacter::MoveForward(float MoveAmount)
 {
-	AddMovementInput(GetActorForwardVector() * MoveAmount);
+	if(!IsDead)AddMovementInput(GetActorForwardVector() * MoveAmount);
 }
 
 void APlayerCharacter::SideMovement(float MoveAmount)
 {
-	AddMovementInput(GetActorRightVector() * MoveAmount);
+	if (!IsDead)AddMovementInput(GetActorRightVector() * MoveAmount);
 }
 
 void APlayerCharacter::LookUp(float MoveAmount)
 {
-	AddControllerPitchInput(MoveAmount);
+	if (!IsDead)AddControllerPitchInput(MoveAmount);
 }
 
 void APlayerCharacter::Turn(float MoveAmount)
 {
-	AddControllerYawInput(MoveAmount);
+	if (!IsDead)AddControllerYawInput(MoveAmount);
 }
 
 void APlayerCharacter::BeginCrouch()
@@ -319,11 +324,11 @@ float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Damag
 			UE_LOG(LogTemp, Warning, TEXT("enemy"));
 			Destroy();
 			TheFlameThrower->Destroy();
-			//GameModeRef->EnemyKilled();//executes a gamemode funtion
+			GameModeRef->EnemyKilled();//executes a gamemode funtion
 		}
 		else//if player
 		{
-			//GameModeRef->GameOver();//ends the game
+			GameModeRef->GameOver();//ends the game
 		}
 	}
 	else//if health isnt empty

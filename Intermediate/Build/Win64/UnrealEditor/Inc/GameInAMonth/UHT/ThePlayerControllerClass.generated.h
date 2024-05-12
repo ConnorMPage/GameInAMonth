@@ -25,6 +25,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execGetTotalFuelAmount); \
 	DECLARE_FUNCTION(execGetFuelInMagPerc); \
 	DECLARE_FUNCTION(execGetHealthPerc); \
+	DECLARE_FUNCTION(execLoadEndGame); \
 	DECLARE_FUNCTION(execUpdateHUDStats);
 
 
