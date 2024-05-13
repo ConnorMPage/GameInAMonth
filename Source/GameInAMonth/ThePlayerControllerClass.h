@@ -65,23 +65,23 @@ private:
 	UPROPERTY()
 	UUserWidget* EndScreen;
 	UPROPERTY()
-	int MaxMag = {};
+	int MaxMag = 1;
 	UPROPERTY()
-	int FuelInMag = {};
+	int FuelInMag = 1;
 	UPROPERTY()
-	int TotalFuel = {};
+	int TotalFuel = 1;
 	UPROPERTY()
-	float HealthAmount = {};
+	float HealthAmount = 1;
 	UPROPERTY()
-	float MAXHealth = {};
+	float MAXHealth = 1;
 
 
 	UPROPERTY()
-	int BulletsInMag = {};
+	int BulletsInMag = 1;
 	UPROPERTY()
-	int TotalBullets = {};
+	int TotalBullets = 1;
 	UPROPERTY()
-	int AmountOfGrenades = {};
+	int AmountOfGrenades = 1;
 	UPROPERTY()
 	int CWon = 1;
 	UPROPERTY()

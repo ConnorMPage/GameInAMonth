@@ -55,6 +55,9 @@ void AThePlayerControllerClass::LoadEndGame()
 	if (WinScreenNum == COutOfTime)EndScreen = CreateWidget(this, OOTClass);
 	else EndScreen = CreateWidget(this, DeadClass);
 	if (EndScreen != nullptr)EndScreen->AddToViewport();
+	if (CrosshairUI != nullptr)CrosshairUI->RemoveFromViewport();
+	if (MiniMapUI != nullptr)MiniMapUI->RemoveFromViewport();
+	if (HUDUI != nullptr)HUDUI->RemoveFromViewport();
 }
 
 float AThePlayerControllerClass::GetHealthPerc()
