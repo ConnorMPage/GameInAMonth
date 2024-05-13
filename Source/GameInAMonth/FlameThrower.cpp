@@ -61,6 +61,8 @@ void AFlameThrower::FireWeapon()
 
 			FlameSystem->Activate();
 			BpFireEvent();
+			if (FireSound != nullptr) UGameplayStatics::PlaySoundAtLocation(GetWorld(), FireSound, GetActorLocation(), 0.75f, 1.0f, 0.0f);
+			
 		}
 	}
 }

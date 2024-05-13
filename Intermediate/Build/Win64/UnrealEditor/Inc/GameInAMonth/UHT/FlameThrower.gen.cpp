@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UTimelineComponent_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	GAMEINAMONTH_API UClass* Z_Construct_UClass_AFlameThrower();
@@ -449,6 +450,10 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_FlameTimeline;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_FireSound_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_FireSound;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WeaponDamage_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_WeaponDamage;
@@ -551,6 +556,13 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline = { "FlameTimeline", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFlameThrower, FlameTimeline), Z_Construct_UClass_UTimelineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline_MetaData), Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlameThrower_Statics::NewProp_FireSound_MetaData[] = {
+		{ "Category", "FlameThrower" },
+		{ "ModuleRelativePath", "FlameThrower.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFlameThrower_Statics::NewProp_FireSound = { "FireSound", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFlameThrower, FireSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFlameThrower_Statics::NewProp_FireSound_MetaData), Z_Construct_UClass_AFlameThrower_Statics::NewProp_FireSound_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFlameThrower_Statics::NewProp_WeaponDamage_MetaData[] = {
 		{ "Category", "FlameThrower" },
 		{ "ModuleRelativePath", "FlameThrower.h" },
@@ -631,6 +643,7 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FireSpawnLocation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameSystem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FlameTimeline,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_FireSound,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_WeaponDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_ProjectileSpawnLocation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFlameThrower_Statics::NewProp_ProjectileSpawnRotation,
@@ -680,9 +693,9 @@ void EmptyLinkFunctionForGeneratedCodeFlameThrower() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFlameThrower, AFlameThrower::StaticClass, TEXT("AFlameThrower"), &Z_Registration_Info_UClass_AFlameThrower, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlameThrower), 2419925677U) },
+		{ Z_Construct_UClass_AFlameThrower, AFlameThrower::StaticClass, TEXT("AFlameThrower"), &Z_Registration_Info_UClass_AFlameThrower, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFlameThrower), 1957040016U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_21579815(TEXT("/Script/GameInAMonth"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_2632349891(TEXT("/Script/GameInAMonth"),
 		Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_FlameThrower_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

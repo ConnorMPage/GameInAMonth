@@ -34,6 +34,8 @@ protected:
 	UNiagaraComponent* FlameSystem;
 	UPROPERTY()
 	UTimelineComponent* FlameTimeline;
+	UPROPERTY(EditAnywhere)
+	USoundBase* FireSound;
 public:
 	UFUNCTION()
 	void RefillAmmo();
