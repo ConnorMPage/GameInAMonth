@@ -161,6 +161,11 @@ int APlayerCharacter::GetGrenades()
 	return AmountOfGrenades;
 }
 
+int APlayerCharacter::GetPLevel()
+{
+	return LevelNum;
+}
+
 void APlayerCharacter::MoveForward(float MoveAmount)
 {
 	if(!IsDead)AddMovementInput(GetActorForwardVector() * MoveAmount);
@@ -312,6 +317,15 @@ void APlayerCharacter::SetSecondary()
 	TheFlameThrower->SetWeapon(IsPrimary);
 }
 
+void APlayerCharacter::LevelUp()
+{
+	RifleWeaponDamage += BonusDamage;
+	PlayerHealth = MAXPLAYERHEALTH;
+	LevelNum++;
+	CurentXP = EmptyMag;
+	XPToNextLvl += XPForKill;
+}
+
 float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	if (PlayerHealth <= NoHealth)//if health is empty
@@ -325,6 +339,8 @@ float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Damag
 			Destroy();
 			TheFlameThrower->Destroy();
 			GameModeRef->EnemyKilled();//executes a gamemode funtion
+			CurentXP += XPForKill;
+			if (CurentXP >= XPToNextLvl)LevelUp();
 		}
 		else//if player
 		{

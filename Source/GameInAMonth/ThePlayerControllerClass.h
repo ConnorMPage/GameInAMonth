@@ -34,7 +34,8 @@ private:
 	
 	UFUNCTION(BlueprintPure)
 	int GetTotalBulletAmount();
-
+	UFUNCTION(BlueprintPure)
+	int GetPLevels();
 	UFUNCTION(BlueprintPure)
 	int GetBulletsInMag();
 	UFUNCTION(BlueprintPure)
@@ -74,7 +75,8 @@ private:
 	float HealthAmount = 1;
 	UPROPERTY()
 	float MAXHealth = 1;
-
+	UPROPERTY()
+	int PLevel = 1;
 
 	UPROPERTY()
 	int BulletsInMag = 1;

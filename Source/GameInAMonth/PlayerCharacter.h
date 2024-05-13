@@ -121,6 +121,9 @@ public:
 
 	UFUNCTION()
 	int GetGrenades();
+
+	UFUNCTION()
+	int GetPLevel();
 private:
 	//player stats
 	UPROPERTY(EditAnywhere)
@@ -154,7 +157,17 @@ private:
 	UPROPERTY(EditAnywhere)
 	float RifleCastRange = 5000.0f;
 
-
+	//levels starts
+	UPROPERTY(EditAnywhere)
+	int CurentXP;
+	UPROPERTY(EditAnywhere)
+	int XPToNextLvl = 200;
+	UPROPERTY(EditAnywhere)
+	int LevelNum = 1;
+	UPROPERTY(EditAnywhere)
+	int XPForKill = 25;
+	UPROPERTY(EditAnywhere)
+	int BonusDamage = 5;
 	//Movement Functions
 	UFUNCTION()
 	void MoveForward(float MoveAmount);
@@ -187,6 +200,8 @@ private:
 	UFUNCTION()
 	void SetSecondary();
 
+	UFUNCTION()
+	void LevelUp();
 	UFUNCTION()
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
 		AController* EventInstigator, AActor* DamageCauser) override;

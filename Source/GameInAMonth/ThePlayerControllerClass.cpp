@@ -45,6 +45,7 @@ void AThePlayerControllerClass::UpdateHUDStats()
 		BulletsInMag = PlayerRef->GetBulletsInMag();
 		TotalBullets = PlayerRef->GetTotalBullets();
 		AmountOfGrenades = PlayerRef->GetGrenades();
+		PLevel = PlayerRef->GetPLevel();
 	}
 }
 
@@ -79,6 +80,11 @@ int AThePlayerControllerClass::GetTotalFuelAmount()
 int AThePlayerControllerClass::GetTotalBulletAmount()
 {
 	return TotalBullets;
+}
+
+int AThePlayerControllerClass::GetPLevels()
+{
+	return PLevel;
 }
 
 int AThePlayerControllerClass::GetBulletsInMag()

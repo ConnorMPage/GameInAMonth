@@ -21,6 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
  \
 	DECLARE_FUNCTION(execGetGrenades); \
 	DECLARE_FUNCTION(execGetBulletsInMag); \
+	DECLARE_FUNCTION(execGetPLevels); \
 	DECLARE_FUNCTION(execGetTotalBulletAmount); \
 	DECLARE_FUNCTION(execGetTotalFuelAmount); \
 	DECLARE_FUNCTION(execGetFuelInMagPerc); \

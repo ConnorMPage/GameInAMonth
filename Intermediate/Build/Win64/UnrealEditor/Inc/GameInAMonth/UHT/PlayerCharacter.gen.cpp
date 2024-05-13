@@ -40,6 +40,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		*(float*)Z_Param__Result=P_THIS->TakeDamage(Z_Param_DamageAmount,Z_Param_Out_DamageEvent,Z_Param_EventInstigator,Z_Param_DamageCauser);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(APlayerCharacter::execLevelUp)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->LevelUp();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayerCharacter::execSetSecondary)
 	{
 		P_FINISH;
@@ -140,6 +147,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->MoveForward(Z_Param_MoveAmount);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(APlayerCharacter::execGetPLevel)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetPLevel();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(APlayerCharacter::execGetGrenades)
@@ -244,7 +258,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 			{ "GetHealth", &APlayerCharacter::execGetHealth },
 			{ "GetMaxHealth", &APlayerCharacter::execGetMaxHealth },
 			{ "GetMaxMag", &APlayerCharacter::execGetMaxMag },
+			{ "GetPLevel", &APlayerCharacter::execGetPLevel },
 			{ "GetTotalBullets", &APlayerCharacter::execGetTotalBullets },
+			{ "LevelUp", &APlayerCharacter::execLevelUp },
 			{ "LookUp", &APlayerCharacter::execLookUp },
 			{ "MoveForward", &APlayerCharacter::execMoveForward },
 			{ "RefuelWeapon", &APlayerCharacter::execRefuelWeapon },
@@ -664,6 +680,40 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics
+	{
+		struct PlayerCharacter_eventGetPLevel_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerCharacter_eventGetPLevel_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCharacter, nullptr, "GetPLevel", nullptr, nullptr, Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::PropPointers), sizeof(Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::PlayerCharacter_eventGetPLevel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::PlayerCharacter_eventGetPLevel_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_APlayerCharacter_GetPLevel()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerCharacter_GetPLevel_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_APlayerCharacter_GetTotalBullets_Statics
 	{
 		struct PlayerCharacter_eventGetTotalBullets_Parms
@@ -695,6 +745,28 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerCharacter_GetTotalBullets_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayerCharacter_LevelUp_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerCharacter_LevelUp_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerCharacter_LevelUp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerCharacter, nullptr, "LevelUp", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerCharacter_LevelUp_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerCharacter_LevelUp_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_APlayerCharacter_LevelUp()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerCharacter_LevelUp_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1219,6 +1291,26 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_RifleCastRange_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_RifleCastRange;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurentXP_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_CurentXP;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_XPToNextLvl_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_XPToNextLvl;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LevelNum_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_LevelNum;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_XPForKill_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_XPForKill;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BonusDamage_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_BonusDamage;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -1243,7 +1335,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		{ &Z_Construct_UFunction_APlayerCharacter_GetHealth, "GetHealth" }, // 223872982
 		{ &Z_Construct_UFunction_APlayerCharacter_GetMaxHealth, "GetMaxHealth" }, // 278825903
 		{ &Z_Construct_UFunction_APlayerCharacter_GetMaxMag, "GetMaxMag" }, // 4070342193
+		{ &Z_Construct_UFunction_APlayerCharacter_GetPLevel, "GetPLevel" }, // 2154072703
 		{ &Z_Construct_UFunction_APlayerCharacter_GetTotalBullets, "GetTotalBullets" }, // 2510138435
+		{ &Z_Construct_UFunction_APlayerCharacter_LevelUp, "LevelUp" }, // 4184000248
 		{ &Z_Construct_UFunction_APlayerCharacter_LookUp, "LookUp" }, // 3564338599
 		{ &Z_Construct_UFunction_APlayerCharacter_MoveForward, "MoveForward" }, // 2902875338
 		{ &Z_Construct_UFunction_APlayerCharacter_RefuelWeapon, "RefuelWeapon" }, // 353543030
@@ -1638,6 +1732,47 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_RifleCastRange = { "RifleCastRange", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerCharacter, RifleCastRange), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_RifleCastRange_MetaData), Z_Construct_UClass_APlayerCharacter_Statics::NewProp_RifleCastRange_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_CurentXP_MetaData[] = {
+		{ "Category", "PlayerCharacter" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//levels starts\n" },
+#endif
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "levels starts" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_CurentXP = { "CurentXP", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerCharacter, CurentXP), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_CurentXP_MetaData), Z_Construct_UClass_APlayerCharacter_Statics::NewProp_CurentXP_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPToNextLvl_MetaData[] = {
+		{ "Category", "PlayerCharacter" },
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPToNextLvl = { "XPToNextLvl", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerCharacter, XPToNextLvl), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPToNextLvl_MetaData), Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPToNextLvl_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_LevelNum_MetaData[] = {
+		{ "Category", "PlayerCharacter" },
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_LevelNum = { "LevelNum", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerCharacter, LevelNum), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_LevelNum_MetaData), Z_Construct_UClass_APlayerCharacter_Statics::NewProp_LevelNum_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPForKill_MetaData[] = {
+		{ "Category", "PlayerCharacter" },
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPForKill = { "XPForKill", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerCharacter, XPForKill), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPForKill_MetaData), Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPForKill_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerCharacter_Statics::NewProp_BonusDamage_MetaData[] = {
+		{ "Category", "PlayerCharacter" },
+		{ "ModuleRelativePath", "PlayerCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerCharacter_Statics::NewProp_BonusDamage = { "BonusDamage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerCharacter, BonusDamage), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerCharacter_Statics::NewProp_BonusDamage_MetaData), Z_Construct_UClass_APlayerCharacter_Statics::NewProp_BonusDamage_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_MainCamera,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_SpringArmForMainCam,
@@ -1677,6 +1812,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_AmountOfBulletsInMag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_RifleWeaponDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_RifleCastRange,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_CurentXP,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPToNextLvl,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_LevelNum,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_XPForKill,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerCharacter_Statics::NewProp_BonusDamage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APlayerCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APlayerCharacter>::IsAbstract,
@@ -1716,9 +1856,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerCharacter, APlayerCharacter::StaticClass, TEXT("APlayerCharacter"), &Z_Registration_Info_UClass_APlayerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerCharacter), 4096032816U) },
+		{ Z_Construct_UClass_APlayerCharacter, APlayerCharacter::StaticClass, TEXT("APlayerCharacter"), &Z_Registration_Info_UClass_APlayerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerCharacter), 391392043U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_411306768(TEXT("/Script/GameInAMonth"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_452828599(TEXT("/Script/GameInAMonth"),
 		Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_conno_OneDrive_Documents_Uni_Masters_Year_Advanced_Games_Dev_GameInAMonth_Source_GameInAMonth_PlayerCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
